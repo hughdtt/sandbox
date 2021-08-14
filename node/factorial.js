@@ -8,15 +8,23 @@ const factorial = (n) => {
     return n * (factorial(n-1));
 }
 
-console.log(factorial(3)) // 6
-console.log(factorial(4)) // 24
-console.log(factorial(5)) // 120
-console.log(factorial(25)) // 1.5511210043330986e+25 //Notice this doesn't hang ; why?
+//console.log(factorial(3)) // 6
+//console.log(factorial(4)) // 24
+//console.log(factorial(5)) // 120
+//console.log(factorial(25)) // 1.5511210043330986e+25 //Notice this doesn't hang ; why?
 
 /**
  * Time Complexity = Linear Time = Calls itself n times = O(n)
  * Space Complexity = Stack of N so also O(n)
  * Slightly different from Fibonacci because the return is (n * recursive call) rather than (recursive call + recursive call)
  */
+
+
+const permutation = (n,r) => {
+    return factorial(n)/ factorial(n-r);
+}
+
+console.log(permutation(16,3))
+
 
 
