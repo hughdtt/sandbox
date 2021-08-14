@@ -19,7 +19,8 @@ const factorial = (n) => {
  * Slightly different from Fibonacci because the return is (n * recursive call) rather than (recursive call + recursive call)
  */
 
-
+// I was just looking around to see applications of factorials - turns out you can use them to calculate permutations (combinations where order matters)
+// Implementation
 const permutation = (n,r) => {
     return factorial(n)/ factorial(n-r);
 }
