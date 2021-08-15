@@ -10,19 +10,22 @@
  * e.g. canSum(7,[5,3,4,7]) -> true (3+4) or (7)
  */
 
-const canSum = (targetSum, numbers) => {
+const canSum = (targetSum, numbers, memo = {}) => {
+    //memo
+    if (targetSum in memo) return memo[targetSum];
     //base case
     if (targetSum === 0) return true;
     if (targetSum < 0 ) return false;
     //recursive call
     for (let element of numbers){
         const remainder = targetSum - element;
-        if (canSum(remainder, numbers) === true){
-            return true;
+        if (canSum(remainder, numbers, memo) === true){
+            memo[targetSum] = true;
+            return memo[targetSum];
         }
     }
-
-    return false;
+    memo[targetSum] = false;
+    return memo[targetSum];
 }
 
 console.log(canSum(7, [2,3])) // True
