@@ -1,20 +1,37 @@
-const repeatString = (string, n) => {
-    if (string.length === 1 && n === 1) return 1;
-    let subString = '';
-    for (let i = 0; i < n; i++){
-        subString += string;
-    }
-    let finalString = subString.substring(0,n)
+//this could use a redo
+
+const repeatString = (s, n) => {
+    //Calc num of A in baseString
     let dict = {};
-    for (let letter in finalString){
-        if (!(finalString[letter] in dict)){
-            dict[finalString[letter]] = 1;
+    for (let letter in s){
+        if (!(s[letter] in dict)){
+            dict[s[letter]] = 1;
         } else {
-            dict[finalString[letter]] += 1;
+            dict[s[letter]] += 1;
         }
     }
-    return dict['a']
+    console.log(dict['a'])
+    if (!('a' in dict)) return 0;
+    //Figure out numRepeats
+    let numRepeats = Math.floor(n / s.length);
+    let remainder = n - (s.length * numRepeats);
+    console.log(numRepeats, remainder)
+    if (remainder === 0){
+        return dict['a'] * numRepeats
+    } else {
+        //Repeats don't go evenly, so there's remainder
+        let remainderString = s.substring(0, remainder);
+        let subDict = {};
+        for (let letter in remainderString){
+            if (!(remainderString[letter] in subDict)){
+                subDict[remainderString[letter]] = 1;
+            } else {
+                subDict[remainderString[letter]] += 1;
+            }
+        }
+        if (!('a' in subDict)) subDict['a'] = 0;
+        return dict['a'] * numRepeats + subDict['a']
+    }  
 }
 
-console.log(repeatString('abcac', 10)) //4
-console.log(repeatString('aba', 10)) //7
+console.log(repeatString('bab', 725261545450)) //241753848483
