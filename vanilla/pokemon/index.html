@@ -8,22 +8,25 @@
     <script src="https://unpkg.com/pokeapi-js-wrapper/dist/index.js"></script>
 </head>
 <body>
+    <style>
+        img {
+            height: auto;
+            width: 256px;
+            image-rendering: pixelated;
+        }
+    </style>
     <script>
         const P = new Pokedex.Pokedex({ cacheImages: true });
     </script>
     <div id="app">
         <img
             src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif"
-            alt="Bulbasaur"
-
+            alt="Bulbasaur-Back"
+        />
+        <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/back/1.gif"
+            alt="Bulbasaur-Back"
         />
     </div>
-    <script>
-        P.getBerryByName(["cheri", "chesto", 5]).then(function(response) {
-        // `response` will be an Array containing 3 Objects
-        // response.forEach((item) => {console.log(item.size)}) // 80,50,20
-        console.table(response)
-        })
-    </script>
 </body>
 </html>
