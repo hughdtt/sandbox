@@ -1,5 +1,4 @@
 //Just a bit of analysis on one of the functions
-//pushing code for github streak lol
 function noisy(f) {
     return (...args) => {
       console.log("calling with", args);
